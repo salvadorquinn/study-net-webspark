@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
@@ -23,6 +22,7 @@ const Header = () => {
 
   const navItems = [
     { name: "Home", href: "/" },
+    { name: "Events", href: "/events" },
     { name: "About", href: "#about" },
     { name: "Services", href: "#services" },
     { name: "Testimonials", href: "#testimonials" },
@@ -46,13 +46,13 @@ const Header = () => {
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-6">
           {navItems.map((item) => (
-            <a
+            <Link
               key={item.name}
-              href={item.href}
+              to={item.href.startsWith("/") ? item.href : item.href}
               className="text-gray-700 hover:text-studynet-blue font-medium transition-colors"
             >
               {item.name}
-            </a>
+            </Link>
           ))}
           <Button className="bg-studynet-blue hover:bg-studynet-darkblue text-white">
             Get Started
@@ -74,14 +74,14 @@ const Header = () => {
         <nav className="md:hidden bg-white absolute w-full p-4 shadow-md animate-fade-in">
           <div className="flex flex-col space-y-4">
             {navItems.map((item) => (
-              <a
+              <Link
                 key={item.name}
-                href={item.href}
+                to={item.href.startsWith("/") ? item.href : item.href}
                 className="text-gray-700 hover:text-studynet-blue py-2 font-medium transition-colors"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {item.name}
-              </a>
+              </Link>
             ))}
             <Button className="bg-studynet-blue hover:bg-studynet-darkblue text-white w-full">
               Get Started
