@@ -2,7 +2,7 @@
 import React from "react";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Calendar, Clock, Event } from "lucide-react";
+import { Calendar, Clock, MapPin } from "lucide-react";
 
 // Sample events data
 const eventsData = [
@@ -69,7 +69,7 @@ const EventsList = () => {
                   <span>{event.time}</span>
                 </div>
                 <div className="flex items-center gap-1 text-sm text-gray-600 mb-4">
-                  <Event className="h-4 w-4" />
+                  <MapPin className="h-4 w-4" />
                   <span>{event.location}</span>
                 </div>
                 <p className="text-gray-700">{event.description}</p>
