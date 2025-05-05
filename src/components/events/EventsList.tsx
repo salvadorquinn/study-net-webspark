@@ -59,17 +59,17 @@ const EventsList = () => {
               <CardHeader className="border-b border-studynet-tertiary/10">
                 <CardTitle className="text-studynet-secondary">{event.title}</CardTitle>
                 <CardDescription className="flex items-center gap-1 text-studynet-tertiary">
-                  <Calendar className="h-4 w-4" />
+                  <Calendar className="h-4 w-4 text-studynet-primary" />
                   <span>{event.date}</span>
                 </CardDescription>
               </CardHeader>
               <CardContent className="pt-4">
                 <div className="flex items-center gap-1 text-sm text-studynet-tertiary mb-2">
-                  <Clock className="h-4 w-4" />
+                  <Clock className="h-4 w-4 text-studynet-primary" />
                   <span>{event.time}</span>
                 </div>
                 <div className="flex items-center gap-1 text-sm text-studynet-tertiary mb-4">
-                  <MapPin className="h-4 w-4" />
+                  <MapPin className="h-4 w-4 text-studynet-primary" />
                   <span>{event.location}</span>
                 </div>
                 <p className="text-studynet-dark">{event.description}</p>

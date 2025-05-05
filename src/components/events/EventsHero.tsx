@@ -17,7 +17,7 @@ const EventsHero = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button className="bg-studynet-primary hover:bg-studynet-secondary text-white px-8 py-6 text-lg">
-                <Calendar className="mr-2" />
+                <Calendar className="mr-2 text-white" />
                 Upcoming Events
               </Button>
               <Button variant="outline" className="border-studynet-primary text-studynet-primary hover:bg-studynet-formBg px-8 py-6 text-lg">
