@@ -24,11 +24,22 @@ const Header = () => {
   const navItems = [
     { name: "Home", href: "/" },
     { name: "Events", href: "/events" },
-    { name: "About", href: "#about" },
-    { name: "Services", href: "#services" },
-    { name: "Testimonials", href: "#testimonials" },
-    { name: "Contact", href: "#contact" },
+    { name: "About", href: "/#about" },
+    { name: "Services", href: "/#services" },
+    { name: "Testimonials", href: "/#testimonials" },
+    { name: "Contact", href: "/#contact" },
   ];
+
+  const handleAnchorClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href.startsWith('/#')) {
+      e.preventDefault();
+      const target = document.querySelector(href.substring(1));
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+        setIsMobileMenuOpen(false);
+      }
+    }
+  };
 
   return (
     <header
@@ -41,32 +52,43 @@ const Header = () => {
       <div className="container mx-auto px-4 md:px-6 flex justify-between items-center">
         {/* Logo */}
         <Link to="/" className="flex items-center">
-          <span className="text-2xl font-bold text-studynet-primary font-heading">StudyNet</span>
+          <span className="text-2xl font-bold text-[#9b1f62] font-heading">StudyNet</span>
         </Link>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-6">
           {navItems.map((item) => (
-            <Link
-              key={item.name}
-              to={item.href.startsWith("/") ? item.href : item.href}
-              className="text-studynet-tertiary hover:text-studynet-primary font-medium transition-colors"
-            >
-              {item.name}
-            </Link>
+            item.href.startsWith("/#") ? (
+              <a
+                key={item.name}
+                href={item.href}
+                onClick={(e) => handleAnchorClick(e, item.href)}
+                className="text-[#3e3764] hover:text-[#9b1f62] font-medium transition-colors"
+              >
+                {item.name}
+              </a>
+            ) : (
+              <Link
+                key={item.name}
+                to={item.href}
+                className="text-[#3e3764] hover:text-[#9b1f62] font-medium transition-colors"
+              >
+                {item.name}
+              </Link>
+            )
           ))}
-          <Button className="bg-studynet-primary hover:bg-studynet-secondary text-white">
+          <Button className="bg-[#9b1f62] hover:bg-[#682161] text-white">
             Get Started
           </Button>
         </nav>
 
         {/* Mobile menu button */}
         <button
-          className="md:hidden text-studynet-tertiary hover:text-studynet-primary"
+          className="md:hidden text-[#3e3764] hover:text-[#9b1f62]"
           onClick={toggleMobileMenu}
           aria-label="Toggle menu"
         >
-          {isMobileMenuOpen ? <X size={24} className="text-studynet-primary" /> : <Menu size={24} className="text-studynet-primary" />}
+          {isMobileMenuOpen ? <X size={24} className="text-[#9b1f62]" /> : <Menu size={24} className="text-[#9b1f62]" />}
         </button>
       </div>
 
@@ -75,16 +97,27 @@ const Header = () => {
         <nav className="md:hidden bg-white absolute w-full p-4 shadow-md animate-fade-in">
           <div className="flex flex-col space-y-4">
             {navItems.map((item) => (
-              <Link
-                key={item.name}
-                to={item.href.startsWith("/") ? item.href : item.href}
-                className="text-studynet-tertiary hover:text-studynet-primary py-2 font-medium transition-colors"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                {item.name}
-              </Link>
+              item.href.startsWith("/#") ? (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  onClick={(e) => handleAnchorClick(e, item.href)}
+                  className="text-[#3e3764] hover:text-[#9b1f62] py-2 font-medium transition-colors"
+                >
+                  {item.name}
+                </a>
+              ) : (
+                <Link
+                  key={item.name}
+                  to={item.href}
+                  className="text-[#3e3764] hover:text-[#9b1f62] py-2 font-medium transition-colors"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  {item.name}
+                </Link>
+              )
             ))}
-            <Button className="bg-studynet-primary hover:bg-studynet-secondary text-white w-full">
+            <Button className="bg-[#9b1f62] hover:bg-[#682161] text-white w-full">
               Get Started
             </Button>
           </div>
