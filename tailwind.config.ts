@@ -68,6 +68,12 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				studynet: {
+					// Updated with company colors
+					primary: '#9b1f62',
+					secondary: '#682161',
+					tertiary: '#3e3764',
+					dark: '#283043',
+					formBg: 'rgba(155,31,98,0.24)',
 					blue: '#0062cc',
 					lightblue: '#e6f0ff',
 					darkblue: '#004999',

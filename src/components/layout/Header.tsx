@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
@@ -40,7 +41,7 @@ const Header = () => {
       <div className="container mx-auto px-4 md:px-6 flex justify-between items-center">
         {/* Logo */}
         <Link to="/" className="flex items-center">
-          <span className="text-2xl font-bold text-studynet-blue font-heading">StudyNet</span>
+          <span className="text-2xl font-bold text-studynet-primary font-heading">StudyNet</span>
         </Link>
 
         {/* Desktop Navigation */}
@@ -49,19 +50,19 @@ const Header = () => {
             <Link
               key={item.name}
               to={item.href.startsWith("/") ? item.href : item.href}
-              className="text-gray-700 hover:text-studynet-blue font-medium transition-colors"
+              className="text-studynet-tertiary hover:text-studynet-primary font-medium transition-colors"
             >
               {item.name}
             </Link>
           ))}
-          <Button className="bg-studynet-blue hover:bg-studynet-darkblue text-white">
+          <Button className="bg-studynet-primary hover:bg-studynet-secondary text-white">
             Get Started
           </Button>
         </nav>
 
         {/* Mobile menu button */}
         <button
-          className="md:hidden text-gray-700 hover:text-studynet-blue"
+          className="md:hidden text-studynet-tertiary hover:text-studynet-primary"
           onClick={toggleMobileMenu}
           aria-label="Toggle menu"
         >
@@ -77,13 +78,13 @@ const Header = () => {
               <Link
                 key={item.name}
                 to={item.href.startsWith("/") ? item.href : item.href}
-                className="text-gray-700 hover:text-studynet-blue py-2 font-medium transition-colors"
+                className="text-studynet-tertiary hover:text-studynet-primary py-2 font-medium transition-colors"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {item.name}
               </Link>
             ))}
-            <Button className="bg-studynet-blue hover:bg-studynet-darkblue text-white w-full">
+            <Button className="bg-studynet-primary hover:bg-studynet-secondary text-white w-full">
               Get Started
             </Button>
           </div>
